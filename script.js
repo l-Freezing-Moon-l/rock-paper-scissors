@@ -6,6 +6,21 @@ function computerPlay() {
   return choice;
 }
 
+// get the players choice
+// ask rock, paper, scissors?
+// store choice in players choice
+// make sure choice is valid
+// tell them if not and get a new choice
+function playerPlay() {
+  let playerChoice = window.prompt('Rock, Paper, Scissors?');
+  if ( (playerChoice.toLowerCase() === 'rock') || (playerChoice.toLowerCase() === 'paper') || (playerChoice.toLowerCase() === 'scissors') ) {
+  return playerChoice.toLowerCase();
+  } else {
+    alert('Invalid Choice!')
+    return 'Invalid Choice!';
+  }
+}
+
 let playerWins = 0;
 let computerWins = 0;
 
@@ -38,7 +53,16 @@ function playRound(playerChoice, computerChoice) {
   } else if(playerChoice === 'scissors' && computerChoice === 'paper') {
       playerWins++;
       return 'You win! Scissors beats Paper';
+  } else {
+      return 'Invalid Choice!';
   }
+}
+
+// display score
+function score(playerWins, computerWins) {
+  return  console.log('Score:'),
+          console.log('Player: ' + playerWins),
+          console.log('Computer: ' + computerWins);
 }
 
 // decide who wins the game
@@ -61,16 +85,23 @@ function winner(playerWins, computerWins) {
 // else player loses
 // display who wins the game
 function game() {
-  playerWins;
-  computerWins;
-
+  // play first to five wins
   for(let i = 0; (playerWins < 5 && computerWins < 5); i++) {
+    // count the round
     let round = i + 1;
-    const playerChoice = 'rock';
+
+    // get player and computer choice
+    const playerChoice = playerPlay();
     const computerChoice = computerPlay();
+    
+    // display round number
     console.log('round: ' + round);
+
+    // play a round
     console.log(playRound(playerChoice, computerChoice));
-    console.log('player wins: ' + playerWins, 'computer wins: ' + computerWins);
+
+    // display score
+    score(playerWins, computerWins);
   }
   return winner(playerWins, computerWins);
 }
