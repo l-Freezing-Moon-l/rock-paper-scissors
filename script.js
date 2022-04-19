@@ -16,8 +16,8 @@ function playerPlay() {
   if ( (playerChoice.toLowerCase() === 'rock') || (playerChoice.toLowerCase() === 'paper') || (playerChoice.toLowerCase() === 'scissors') ) {
   return playerChoice.toLowerCase();
   } else {
-    alert('Invalid Choice!')
-    return 'Invalid Choice!';
+    return alert('Invalid Choice!');
+    // return 'Invalid Choice!';
   }
 }
 
@@ -71,10 +71,10 @@ function score(playerWins, computerWins) {
 // note: game stops after 5 wins by either one
 function winner(playerWins, computerWins) {
   if(playerWins === 5) {
-    return 'You won the game!';
+    return console.log('You won the game!');
   
   } else if(computerWins === 5){
-    return 'You lost the game!';
+    return console.log('You lost the game!');
   }
 }
 
@@ -103,7 +103,8 @@ function game() {
     // display score
     score(playerWins, computerWins);
   }
+  // display who won the game
   return winner(playerWins, computerWins);
 }
-
-console.log(game());
+// actually play the game
+game();
